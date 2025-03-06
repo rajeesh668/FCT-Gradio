@@ -10,12 +10,21 @@ CSV_PATHS = {
 }
 
 # ✅ Function to Load CSVs from GitHub
-def load_csv_data(file_url, vendor_name):
+def load_csv_data(url, vendor_name):
+    """Load CSV safely. Return an empty DataFrame if the file is missing."""
     try:
-        return pd.read_csv(file_url)
+        df = pd.read_csv(url)
+        print(f"✅ Successfully loaded {vendor_name} data - First 5 rows:")
+        print(df.head())
+        return df
     except Exception as e:
         print(f"❌ Could not load {vendor_name} data: {e}")
         return pd.DataFrame()
+
+fortinet_data = load_csv_data(CSV_PATHS["Fortinet"], "Fortinet")
+paloalto_data = load_csv_data(CSV_PATHS["Palo Alto"], "Palo Alto")
+sonicwall_data = load_csv_data(CSV_PATHS["SonicWall"], "SonicWall")
+sophos_data = load_csv_data(CSV_PATHS["Sophos"], "Sophos")
 
 # 🔹 Vendor Specific Columns
 FORTINET_COLS = ["Firewall Throughput (Gbps)", "IPS Throughput (Gbps)", "Threat Protection Throughput (Gbps)", "NGFW Throughput (Gbps)", "IPsec VPN Throughput (Gbps)"]
