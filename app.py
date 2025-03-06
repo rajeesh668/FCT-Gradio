@@ -1,7 +1,7 @@
 import pandas as pd
 import gradio as gr
 import re  # ✅ Add this line to fix the error
-import OS
+import os  # ✅ Python uses lowercase 'os'
 
 # ✅ Use GitHub Raw URLs for Faster CSV Loading
 CSV_PATHS = {
