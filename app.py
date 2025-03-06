@@ -139,4 +139,4 @@ with gr.Blocks() as app:
 
     gr.Markdown("<div class='footer'>Developed by <b>Rajeesh - rajeesh@starlinkme.net</b></div>", elem_id="footer")
 
-app.launch(server_name="0.0.0.0", server_port=7860)
+app.launch(server_name="0.0.0.0")
